@@ -30,10 +30,31 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
+  #-- J.O. 18-JAN-2022 ======================================================================================
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.perform_caching = false
+  #-- J.O. 18-JAN-2022 ======================================================================================
+  #config.action_mailer.default_url_options = { :host => 'homeshift.test', :homehero => 'app.homeshift.test' }
+  #config.action_mailer.asset_host = 'http://homeshift.test'
+  #config.action_mailer.delivery_method = :letter_opener
+  #-- J.O. 18-JAN-2022 ======================================================================================
+  #
+  # I recommend using this line to show error
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+       :address        => 'smtp.gmail.com',
+       :port           => '587',
+       :authentication => 'plain',
+       :user_name      => 'itddd.homeshift@gmail.com',
+       :password       => 'get1nget1n',
+       :domain         => 'mail.google.com',
+       :enable_starttls_auto => true
+  }
+  #-- J.O. 18-JAN-2022 ======================================================================================
 
-  config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
