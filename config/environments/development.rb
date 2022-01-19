@@ -41,12 +41,15 @@ Rails.application.configure do
   #-- J.O. 18-JAN-2022 ======================================================================================
   #
   # I recommend using this line to show error
+  #SMTP server: gmail-smtp-msa.l.google.com, Port: 465, SSL: True
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
        :address        => 'smtp.gmail.com',
-       :port           => '587',
+       #:port           => '587',
+       :port           => '465',
+       :ssl            => true,
        :authentication => 'plain',
        :user_name      => 'itddd.homeshift@gmail.com',
        :password       => 'get1nget1n',
