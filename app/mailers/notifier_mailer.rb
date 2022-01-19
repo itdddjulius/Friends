@@ -12,6 +12,6 @@ class NotifierMailer < ApplicationMailer
        format.html
      end
 
-     NotifierMailer.welcome(User.first).deliver_now # sends the email
+     # NotifierMailer.welcome(User.first).deliver_now # sends the email
   end
 end
