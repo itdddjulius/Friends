@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 
 # Use sqlite3 as the database for Active Record
 # JO-THR03FEB2022-Change from SQLITE3 to POSTGRESQL
-# gem 'sqlite3'
+# gem 'sqlite3' 
 gem 'pg'
 
 # Use Puma as the app server
