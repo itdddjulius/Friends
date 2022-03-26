@@ -3,7 +3,7 @@
 ## Prerequisites - POSTGRES ( Installed and Configured as a service )
 
 ## Database initialization & Database creation
-**$
+**
 $  sudo service postgresql start
 $  rails db:drop db:create
 $  rails db:migrate:reset
