@@ -4,12 +4,16 @@
 
 ## Database initialization & Database creation
 **
-$  sudo service postgresql start
-$  rails db:drop db:create
-$  rails db:migrate:reset
-$  rails  db:seed
-$  rails s
+**$  sudo service postgresql start
 **
+**$  rails db:drop db:create
+**
+**$  rails db:migrate:reset
+**
+**$  rails  db:seed
+**
+**$  rails s
+****
 
 ## Ruby version
 
