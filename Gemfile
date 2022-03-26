@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 
 # Use sqlite3 as the database for Active Record
 # JO-THR03FEB2022-Change from SQLITE3 to POSTGRESQL
-# gem 'sqlite3' 
+# gem 'sqlite3'
 gem 'pg'
 
 # Use Puma as the app server
@@ -40,6 +40,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'seed_dump'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
