@@ -1,24 +1,24 @@
-# README
+# Friends - Initial Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites - POSTGRES ( Installed and Configured as a service )
 
-Things you may want to cover:
 
-* Ruby version
+# Database initialization & Database creation
 
-* System dependencies
+### $sudo service postgresql start
+### $rails db:drop db:create
+### $rails db:migrate:reset
+### $rails  db:seed
 
-* Configuration
 
-* Database creation
+# Ruby version
 
-* Database initialization
+# System dependencies
 
-* How to run the test suite
+# Deployment instructions
+### $rails s
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# How to run the test suite
 
 * ...
