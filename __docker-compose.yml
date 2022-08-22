@@ -1,0 +1,128 @@
+version: '2'
+
+services:
+  redis:
+    image: convox/redis
+    ports:
+      - 6379
+    volumes:
+      - /data
+
+  database:
+    image: convox/postgres
+    ports:
+      - 5432
+    volumes:
+      - /var/lib/postgresql/data
+
+  web:
+    build: .
+    command: bundle exec puma
+    env_file: .env
+    environment:
+      - RAILS_ENV
+      - RAILS_MAX_THREADS
+      - RAILS_LOG_TO_STDOUT
+      - RAILS_SERVE_STATIC_FILES
+      - SECRET_KEY_BASE
+      - SECURE_CHANNEL_KEY
+      - BACKEND_HOST
+      - NO_REPLY_EMAIL
+      - SEND_PARTNER_REPORTS_TO
+      - SEND_REPORTS_TO
+      - DEFAULT_CLAIM_EMAIL_TO
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+      - SMTP_ADDRESS
+      - SMTP_PORT
+      - WARDEN_PEPPER
+      - WARDEN_SECRET_KEY
+      - TEXT_ENCRYPTION_SECRET_KEY
+      - SENTRY_DSN
+      - STRIPE_SECRET_KEY
+      - STRIPE_PUBLISHABLE_KEY
+      - STRIPE_ENDPOINT_SECRET
+      - AWS_S3_ENABLED
+      - AWS_S3_ACCESS_KEY
+      - AWS_S3_SECRET_KEY
+      - AWS_S3_REGION
+      - AWS_S3_HOST
+      - AWS_S3_ENDPOINT
+      - AWS_S3_DIRECTORY
+      - SEGMENT_ANALYTICS_WRITE_KEY
+      - CLIENT_URL
+      - WEB_WHITELISTED_IPS
+      - API_WHITELISTED_IPS
+      - THROTTLE_CONTACT_ME_LIMIT
+      - THROTTLE_CONTACT_ME_PERIOD
+      - INSTANCE_NAME
+      - RENEW_POLICY_EACH
+      - SIDEKIQ_REDIS_URL
+      - FEATURE_ALLOW_BYPASSES
+      - ALLOW_TEST_TASKS
+      - OFAC_API_KEY
+      - SANCTION_SEARCH_USER_ID
+      - SANCTION_SEARCH_USER_KEY
+      - OPENCORPORATES_PRIVATE_KEY
+    labels:
+      - convox.port.80.protocol=http
+      - convox.port.443.protocol=https
+    ports:
+      - 80:3000
+      - 443:3000
+    links:
+      - redis
+      - database
+
+  workers:
+    build: .
+    command: bundle exec sidekiq -q default -q mailers
+    env_file: .env
+    environment:
+      - RAILS_ENV
+      - RAILS_MAX_THREADS
+      - RAILS_LOG_TO_STDOUT
+      - RAILS_SERVE_STATIC_FILES
+      - SECRET_KEY_BASE
+      - SECURE_CHANNEL_KEY
+      - BACKEND_HOST
+      - NO_REPLY_EMAIL
+      - SEND_PARTNER_REPORTS_TO
+      - SEND_REPORTS_TO
+      - DEFAULT_CLAIM_EMAIL_TO
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+      - SMTP_ADDRESS
+      - SMTP_PORT
+      - WARDEN_PEPPER
+      - WARDEN_SECRET_KEY
+      - TEXT_ENCRYPTION_SECRET_KEY
+      - SENTRY_DSN
+      - STRIPE_SECRET_KEY
+      - STRIPE_PUBLISHABLE_KEY
+      - STRIPE_ENDPOINT_SECRET
+      - AWS_S3_ENABLED
+      - AWS_S3_ACCESS_KEY
+      - AWS_S3_SECRET_KEY
+      - AWS_S3_REGION
+      - AWS_S3_HOST
+      - AWS_S3_ENDPOINT
+      - AWS_S3_DIRECTORY
+      - SEGMENT_ANALYTICS_WRITE_KEY
+      - CLIENT_URL
+      - WEB_WHITELISTED_IPS
+      - API_WHITELISTED_IPS
+      - THROTTLE_CONTACT_ME_LIMIT
+      - THROTTLE_CONTACT_ME_PERIOD
+      - INSTANCE_NAME
+      - RENEW_POLICY_EACH
+      - SIDEKIQ_REDIS_URL
+      - FEATURE_ALLOW_BYPASSES
+      - ALLOW_TEST_TASKS
+      - OFAC_API_KEY
+      - SANCTION_SEARCH_USER_ID
+      - SANCTION_SEARCH_USER_KEY
+      - OPENCORPORATES_PRIVATE_KEY
+    links:
+      - redis
+      - database
