@@ -1,7 +1,8 @@
 # Friends - Initial Setup
 
 # Available for preview:
-[Here] "https://d-f-docker-friends-0pus5zhixo8.herokuapp.com/"
+Heroku - [Heroku] "https://d-f-docker-friends-0pus5zhixo8.herokuapp.com/"
+Gorm.Io - [Gorm.io] "https://jo-friends-eapyo.run-eu-central1.goorm.io/"
 
 ## Prerequisites - POSTGRES ( Installed and Configured as a service )
 
