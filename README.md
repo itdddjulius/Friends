@@ -1,5 +1,8 @@
 # Friends - Initial Setup
 
+# Available for preview:
+[Here] "https://d-f-docker-friends-0pus5zhixo8.herokuapp.com/"
+
 ## Prerequisites - POSTGRES ( Installed and Configured as a service )
 
 
